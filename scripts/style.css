@@ -1,11 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
-.fc td.fc-today {
-    background: #f4f4f4;
-}
 #calendar {
-    max-width: 960px;
+    max-width: 100%;
     margin: 0px auto;
 }
 
@@ -29,12 +26,18 @@ body {
 
 /* Remove the header border from Schedule */
 .fc td, .fc th {
-    border-style: none !important;
-    border-width: 1px !important;
-    padding: 0 !important;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0;
     vertical-align: top !important;
 }
+.fc td.fc-head-container, .fc th{
+    border: 0;
+}
 
+.fc th{
+    padding-bottom: 5px;
+}
 /* Inherits background for each event from Schedule. */
 .fc-event .fc-bg {
     z-index: 1 !important;
@@ -48,15 +51,93 @@ body {
 }
 
 /* Apply same opacity to all day events */
-.fc-ltr .fc-h-event.fc-not-end, .fc-rtl .fc-h-event.fc-not-start {
-    opacity: .65 !important;
-    margin-left: 12px !important;
+.fc-ltr .fc-h-event {
+    margin-left: 1px !important;
+    margin-right: 1px !important;
     padding: 5px! important;
+    border-radius: 3px !important;
 }
 
 /* Apply same opacity to all day events */
 .fc-day-grid-event.fc-h-event.fc-event.fc-not-start.fc-end {
-    opacity: .65 !important;
-    margin-left: 12px !important;
+    margin-left: 1px !important;
     padding: 5px! important;
+}
+
+.fc-content .fc-title{
+    color: #fff;
+}
+.container{
+    padding-top: 100px;
+}
+.conge{
+    background: #3370A6;
+    border-color: #3370A6;
+}
+.teletravail{
+    background: #93C74E;
+    border-color: #93C74E;
+}
+.ticket{
+    background: #BD1229;
+    border-color: #BD1229;
+}
+.fc-toolbar h2{
+    text-transform: capitalize;
+}
+
+.fc-row .fc-content-skeleton td, .fc-row .fc-helper-skeleton td{
+    color: #676767;
+}
+
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-list-heading td,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-row,
+.fc-unthemed tbody,
+.fc-unthemed td,
+.fc-unthemed th,
+.fc-unthemed thead{
+    border-color: #e1e1e1;
+}
+
+#legende h5{
+    text-transform: uppercase;
+    padding-top: 100px;
+    font-weight:bold;
+}
+
+.legendLine{
+    font-size: 15px;
+    margin-top: 15px;
+    line-height: 15px;
+}
+
+.colorbox{
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+}
+
+.qtip-content b{
+    font-size: 13px;
+}
+.qtip-content{
+    padding: 15px;
+}
+
+.fc-toolbar button{
+    background: #fff;
+}
+
+.fc-toolbar button.fc-state-active, .fc-toolbar button.fc-state-down{
+    background: #3370A6;
+    color: #fff;;
+}
+
+.fc-state-default{
+    text-shadow: none;
 }

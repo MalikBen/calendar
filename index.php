@@ -2,6 +2,7 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min.css">
     <link rel="stylesheet" href="scripts/style.css">
@@ -10,6 +11,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/locale/fr.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         var tooltip = $('<div/>').qtip({
@@ -40,8 +42,8 @@
             right: 'month,agendaWeek,agendaDay'
           },
           eventClick: function(data, event, view) {
-            var content = '<h3>'+data.title+' - '+moment(data.start).format('Do MMMM YYYY HH:mm')+'</h3>' +
-              '<p>'+data.description+'<br />'
+            const description = data.description ? '<p>' + data.description + '<p>' : '';
+            const content = '<h6>' + data.title + '</h6>' + description;
 
             tooltip.set({
               'content.text': content
@@ -58,12 +60,33 @@
             }
           ],
           timeFormat: 'H(:mm)',
-          locale: 'fr'
+          locale: 'fr',
+          weekends: false,
+          allDay: true
         });
       });
     </script>
 </head>
 <body>
-    <div id="calendar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div id="calendar"></div>
+        </div>
+        <div class="col-md-2" id="legende">
+            <h5>Légende</h5>
+            <div class="legendLine">
+                <div class="colorbox conge"></div> Congés
+            </div>
+            <div class="legendLine">
+                <div class="colorbox teletravail"></div> Télétravail
+            </div>
+            <div class="legendLine">
+                <div class="colorbox ticket"></div> Deadline !
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
